@@ -1,8 +1,8 @@
 import express, { type IRouter } from "express";
-import getHello from "../controllers/getHello.js";
+import getDatabaseConnection from "../controllers/getDatabaseConnection.ts";
 
 const router: IRouter = express.Router();
 
-router.get("/getHello", getHello);
+router.get("/getDatabaseConnection", getDatabaseConnection);
 
 export default router;
