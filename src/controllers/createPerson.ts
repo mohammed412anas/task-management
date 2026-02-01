@@ -4,6 +4,8 @@ import createItem from "../services/createItem/createItem.js";
 const creatPerson = async (req: Request, res: Response) => {
   try {
     const { name, email } = req.body;
+    if (!name || !email) res.status(400).send("Person data is Invalid");
+
     const response = await createItem(name, email);
     if (typeof response === "string") res.status(200).send(response);
     else res.status(400).send(response);

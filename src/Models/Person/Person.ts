@@ -16,6 +16,9 @@ const Person = sequelize.define("People", {
     type: Sequelize.STRING,
     allowNull: false,
     unique: true,
+    validate: {
+      isEmail: true,
+    },
   },
 
   createdAt: {
