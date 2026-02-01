@@ -1,4 +1,4 @@
-import Person from "../../Models/Person/Person.js";
+import Person from "../../models/Person/Person.js";
 
 const getItems = async () => {
   try {
