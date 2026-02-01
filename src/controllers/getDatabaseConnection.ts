@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import sequelize from "../config/index.ts";
+import sequelize from "../config/index.js";
 
 const getDatabaseConnection = async (req: Request, res: Response) => {
   try {
