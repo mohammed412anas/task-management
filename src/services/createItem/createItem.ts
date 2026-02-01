@@ -1,5 +1,5 @@
 import type { Error } from "sequelize";
-import Person from "../../Models/Person/Person.js";
+import Person from "../../models/Person/Person.js";
 import type { CreateItem } from "./createItemType.js";
 
 const createItem: CreateItem = async (name, email) => {
