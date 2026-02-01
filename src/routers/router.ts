@@ -1,8 +1,8 @@
 import express, { type IRouter } from "express";
-import getDatabaseConnection from "../controllers/getDatabaseConnection.js";
+import creatPerson from "../controllers/createPerson.js";
 
 const router: IRouter = express.Router();
 
-router.get("/getDatabaseConnection", getDatabaseConnection);
+router.post("/createPerson", creatPerson);
 
 export default router;
