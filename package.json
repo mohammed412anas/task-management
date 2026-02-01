@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && nodemon dist/app.js"
+    "start": "tsc && node dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/node": "^25.1.0"
+    "@types/node": "^25.1.0",
+    "sequelize-cli": "^6.6.5"
   }
 }
