@@ -1,8 +1,8 @@
 import Sequelize from "sequelize";
 import sequelize from "../../config/index.js";
-import Task from "../Task/Task.js";
+import Person from "../Person/Person.js";
 
-const Person = sequelize.define("People", {
+const Task = sequelize.define("tasks", {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -13,29 +13,28 @@ const Person = sequelize.define("People", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
+  created_by: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: {
+        tableName: "People",
+        schema: "public",
+      },
+      key: "id",
     },
+    allowNull: false,
   },
-
   createdAt: {
     allowNull: false,
     type: Sequelize.DATE,
+    defaultValue: Sequelize.fn("NOW"),
   },
   updatedAt: {
     allowNull: false,
     type: Sequelize.DATE,
-  },
-  status_active: {
-    allowNull: true,
-    type: Sequelize.BOOLEAN,
+    defaultValue: Sequelize.fn("NOW"),
   },
 });
 
-Person.hasMany(Task);
-
-export default Person;
+Task.belongsTo(Person);
+export default Task;
