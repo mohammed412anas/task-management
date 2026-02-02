@@ -5,14 +5,12 @@ import Task from "../../models/Task/Task.js";
 
 const createItemTask: CreateItemTask = async (id, taskName) => {
   try {
-    const validPerson = await (
-      await Person.findOne({
-        where: { id: id },
-      })
-    )?.get();
-    let response = !validPerson
-      ? "Person not found"
-      : "Deactivated person can't create task";
+    const findPerson = await Person.findOne({ where: { id: id } });
+    const validPerson = await findPerson?.get();
+
+    if (!validPerson) return "Person not found";
+    let response = "Deactivated person can't create task";
+
     if (validPerson.status_active) {
       const newTask = await Task.create({
         name: taskName,
