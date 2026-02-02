@@ -24,6 +24,52 @@ Install all the dependencies
 npm install
 ```
 
+### Run the migration files
+
+```sh
+npx sequelize-cli db:migrate
+```
+
+### Run seeding files
+
+```sh
+npx sequelize-cli db:seed:all
+```
+
+### In case you want to undo the migration
+
+Undo all the mirations
+
+```sh
+npx sequelize-cli db:migrate:undo:all
+```
+
+To undo specific files
+
+```sh
+npx sequelize-cli db:migrate:undo --name XXXXXXXXXXXXXX-create-posts.js
+```
+
+### In case you want to undo the seeding
+
+If you wish to undo the most recent seed:
+
+```sh
+npx sequelize-cli db:seed:undo
+```
+
+If you wish to undo a specific seed:
+
+```sh
+npx sequelize-cli db:seed:undo --seed name-of-seed-as-in-data
+```
+
+If you wish to undo all seeds:
+
+```sh
+npx sequelize-cli db:seed:undo:all
+```
+
 # Scripts Available
 
 ## npm run start
