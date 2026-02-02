@@ -10,6 +10,7 @@ module.exports = {
     await queryInterface.addColumn("People", "updatedAt", {
       allowNull: false,
       type: Sequelize.DATE,
+      defaultValue: new Date(),
     });
   },
 };
