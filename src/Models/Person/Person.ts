@@ -36,6 +36,6 @@ const Person = sequelize.define("People", {
   },
 });
 
-Person.hasMany(Task);
-
+Person.hasMany(Task, { foreignKeyConstraint: true, foreignKey: "id" });
+Task.belongsTo(Person, { foreignKeyConstraint: true, foreignKey: "id" });
 export default Person;

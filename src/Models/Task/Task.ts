@@ -1,6 +1,5 @@
 import Sequelize from "sequelize";
 import sequelize from "../../config/index.js";
-import Person from "../Person/Person.js";
 
 const Task = sequelize.define("tasks", {
   id: {
@@ -12,6 +11,7 @@ const Task = sequelize.define("tasks", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
+    unique: true,
   },
   created_by: {
     type: Sequelize.INTEGER,
@@ -36,5 +36,4 @@ const Task = sequelize.define("tasks", {
   },
 });
 
-Task.belongsTo(Person);
 export default Task;
