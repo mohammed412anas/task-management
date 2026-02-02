@@ -29,6 +29,10 @@ const Person = sequelize.define("People", {
     allowNull: false,
     type: Sequelize.DATE,
   },
+  status_active: {
+    allowNull: true,
+    type: Sequelize.BOOLEAN,
+  },
 });
 
 export default Person;
